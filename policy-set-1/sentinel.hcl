@@ -18,3 +18,8 @@ policy "enforce-mandatory-tags" {
     source = "../azure/enforce-mandatory-tags.sentinel"
     enforcement_level = "advisory"
 }
+    
+policy "enforce-naming" {
+    source = "../cloud-agnostic/enforce-naming.sentinel"
+    enforcement_level = "advisory"
+}

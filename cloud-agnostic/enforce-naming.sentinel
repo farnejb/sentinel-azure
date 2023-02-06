@@ -1,0 +1,14 @@
+import "tfplan/v2" as tfplan
+import "tfplan-functions" as plan
+
+Org = string(tfplan.variables.test_variable.value)
+
+print("organization", Org)
+
+naming_convention = "^(" + Org + ")(P|T|D|S)(CU1|EU2)(-)[A-Z]{3}[a-zA-Z]{3,10}(-)(RG)(-)[0-9]{3}$"
+
+allAzureRGs = plan.find_resources("azurerm_resource_group")
+ 
+rg_match = plan.filter_attribute_does_not_match_regex(allAzureRGs, "name", naming_convention, true)
+ 
+main = rule {length(rg_match["messages"]) is 0}

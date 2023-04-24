@@ -19,7 +19,7 @@ policy "enforce-mandatory-tags" {
     enforcement_level = "advisory"
 }
     
-policy "enforce-naming" {
-    source = "../cloud-agnostic/enforce-naming.sentinel"
-    enforcement_level = "soft-mandatory"
-}
+# policy "enforce-naming" {
+#     source = "../cloud-agnostic/enforce-naming.sentinel"
+#     enforcement_level = "soft-mandatory"
+# }
